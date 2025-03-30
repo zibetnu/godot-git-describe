@@ -21,6 +21,10 @@ gdscript/warnings/unsafe_property_access=1
 gdscript/warnings/unsafe_method_access=1
 gdscript/warnings/unsafe_call_argument=1
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/git_describe_project_setting/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
