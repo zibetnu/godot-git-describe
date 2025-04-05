@@ -44,6 +44,7 @@ static func is_git_repository_found() -> bool:
 	return DirAccess.dir_exists_absolute(REPOSITORY_PATH.path_join(".git"))
 
 
+# gdlint:ignore = max-line-length
 # https://gitlab.steamos.cloud/steamrt/steam-runtime-tools/-/blob/main/docs/slr-for-game-developers.md#detecting-the-container-environment
 static func is_in_steam_runtime() -> bool:
 	if OS.get_name() != "Linux":
