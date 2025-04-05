@@ -72,7 +72,7 @@ static func is_in_steam_runtime() -> bool:
 
 
 static func is_platform_configured() -> bool:
-	return OS.get_name() in config.get_sections()
+	return get_platform_name() in config.get_sections()
 
 
 static func platform_execute(command: String) -> String:
