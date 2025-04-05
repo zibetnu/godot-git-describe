@@ -9,6 +9,21 @@ const SETTING_PATH = "application/config/version"
 static var platform_config: ConfigFile = load_platform_config()
 
 
+static func execute(command: String) -> String:
+	var platform_name: String = get_platform_name()
+	var path: String = platform_config.get_value(platform_name, "path")
+
+	var arguments: Array[String] = []
+	arguments.assign(
+			platform_config.get_value(platform_name, "arguments") as Array
+	)
+	arguments.append(command)
+
+	var output: Array[String] = []
+	OS.execute(path, arguments, output, true)
+	return output[0]
+
+
 static func get_git_describe() -> String:
 	if not is_git_repository_found():
 		return DEFAULT_GIT_DESCRIBE
@@ -16,7 +31,7 @@ static func get_git_describe() -> String:
 	if not is_git_found():
 		return DEFAULT_GIT_DESCRIBE
 
-	var git_describe: String = platform_execute("git describe")
+	var git_describe: String = execute("git describe")
 	if git_describe.is_empty():
 		return DEFAULT_GIT_DESCRIBE
 
@@ -37,7 +52,7 @@ static func is_git_found() -> bool:
 	var command: String = " ".join(
 			[platform_config.get_value(get_platform_name(), "which"), "git"]
 	)
-	return not platform_execute(command).is_empty()
+	return not execute(command).is_empty()
 
 
 static func is_git_repository_found() -> bool:
@@ -65,21 +80,6 @@ static func is_in_steam_runtime() -> bool:
 
 static func is_platform_configured() -> bool:
 	return get_platform_name() in platform_config.get_sections()
-
-
-static func platform_execute(command: String) -> String:
-	var platform_name: String = get_platform_name()
-	var path: String = platform_config.get_value(platform_name, "path")
-
-	var arguments: Array[String] = []
-	arguments.assign(
-			platform_config.get_value(platform_name, "arguments") as Array
-	)
-	arguments.append(command)
-
-	var output: Array[String] = []
-	OS.execute(path, arguments, output, true)
-	return output[0]
 
 
 static func load_platform_config() -> ConfigFile:
