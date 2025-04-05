@@ -88,21 +88,25 @@ static func load_platform_config() -> ConfigFile:
 
 
 static func print_errors() -> void:
-	var globalize_path: Callable = ProjectSettings.globalize_path
+	const PRINT_ID: String = "Godot Git Describe: "
 	if not is_platform_configured():
-		printerr(
-				"%s configuration not found in %s." % [
+		push_error(
+				PRINT_ID,
+				"'%s' configuration not found in '%s'." % [
 					get_platform_name(),
-					globalize_path.call(CONFIG_PATH)
+					ProjectSettings.globalize_path(CONFIG_PATH)
 				]
 		)
 
-	if not is_git_repository_found():
-		const TEMPLATE = "Git repository not found in %s."
-		printerr(TEMPLATE % globalize_path.call(REPOSITORY_PATH))
+	elif not is_git_repository_found():
+		push_error(
+				PRINT_ID,
+				"Git repository not found in '%s'."
+				% ProjectSettings.globalize_path(REPOSITORY_PATH)
+		)
 
-	if not is_git_found():
-		printerr("Git not found.")
+	elif not is_git_found():
+		push_error(PRINT_ID, "Git not found.")
 
 
 static func update_version_setting() -> void:
