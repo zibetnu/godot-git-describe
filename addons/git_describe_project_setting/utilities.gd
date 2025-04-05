@@ -6,16 +6,7 @@ const CONFIG_PATH = "res://addons/git_describe_project_setting/platforms.cfg"
 const REPOSITORY_PATH = "res://"
 const SETTING_PATH = "application/config/version"
 
-static var config: ConfigFile:
-	get = get_config
-
-
-static func get_config() -> ConfigFile:
-	if config == null:
-		config = ConfigFile.new()
-		config.load(CONFIG_PATH)
-
-	return config
+static var platform_config: ConfigFile = load_platform_config()
 
 
 static func get_git_describe() -> String:
@@ -44,7 +35,7 @@ static func is_git_found() -> bool:
 		return false
 
 	var command: String = " ".join(
-			[config.get_value(get_platform_name(), "which"), "git"]
+			[platform_config.get_value(get_platform_name(), "which"), "git"]
 	)
 	return not platform_execute(command).is_empty()
 
@@ -72,20 +63,28 @@ static func is_in_steam_runtime() -> bool:
 
 
 static func is_platform_configured() -> bool:
-	return get_platform_name() in config.get_sections()
+	return get_platform_name() in platform_config.get_sections()
 
 
 static func platform_execute(command: String) -> String:
 	var platform_name: String = get_platform_name()
-	var path: String = config.get_value(platform_name, "path")
+	var path: String = platform_config.get_value(platform_name, "path")
 
 	var arguments: Array[String] = []
-	arguments.assign(config.get_value(platform_name, "arguments") as Array)
+	arguments.assign(
+			platform_config.get_value(platform_name, "arguments") as Array
+	)
 	arguments.append(command)
 
 	var output: Array[String] = []
 	OS.execute(path, arguments, output, true)
 	return output[0]
+
+
+static func load_platform_config() -> ConfigFile:
+	var config := ConfigFile.new()
+	config.load(CONFIG_PATH)
+	return config
 
 
 static func print_errors() -> void:
