@@ -11,11 +11,11 @@ static var platform_config: ConfigFile = load_platform_config()
 
 static func execute(command: String) -> String:
 	var platform_name: String = get_platform_name()
-	var path: String = platform_config.get_value(platform_name, "path")
+	var path: String = platform_config.get_value(platform_name, "path", "")
 
 	var arguments: Array[String] = []
 	arguments.assign(
-			platform_config.get_value(platform_name, "arguments") as Array
+			platform_config.get_value(platform_name, "arguments", "") as Array
 	)
 	arguments.append(command)
 
@@ -50,7 +50,10 @@ static func is_git_found() -> bool:
 		return false
 
 	var command: String = " ".join(
-			[platform_config.get_value(get_platform_name(), "which"), "git"]
+			[
+				platform_config.get_value(get_platform_name(), "which", ""),
+				"git"
+			]
 	)
 	return not execute(command).is_empty()
 
