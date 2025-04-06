@@ -31,7 +31,7 @@ func _ready() -> void:
 	)
 	if is_tag_found:
 		git_describe.text = ProjectSettings.get_setting(
-				"application/config/version"
+				Utilities.SETTING_PATH
 		)
 
 
