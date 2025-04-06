@@ -83,6 +83,11 @@ static func is_platform_configured() -> bool:
 	return get_platform_name() in platform_config.get_sections()
 
 
+static func is_tag_found() -> bool:
+	var results: Results = execute("git tag")
+	return results.exit_code == 0 and not results.output[0].is_empty()
+
+
 static func load_platform_config() -> ConfigFile:
 	var config := ConfigFile.new()
 	config.load(CONFIG_PATH)
@@ -109,6 +114,9 @@ static func print_errors() -> void:
 
 	elif not is_git_found():
 		push_error(PRINT_ID, "Git not found.")
+
+	elif not is_tag_found():
+		push_warning(PRINT_ID, "tag not found.")
 
 
 static func update_version_setting() -> void:
