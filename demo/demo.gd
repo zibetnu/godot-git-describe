@@ -17,6 +17,8 @@ func _ready() -> void:
 	else:
 		skipped.show()
 
+	# Normal usage only involves getting the project setting.
+	# Everything else is to make the demo more informative.
 	git_describe.text = ProjectSettings.get_setting(
 			"application/config/git_describe"
 	)
