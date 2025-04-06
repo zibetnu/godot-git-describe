@@ -9,7 +9,7 @@ const SETTING_PATH = "application/config/version"
 static var platform_config: ConfigFile = load_platform_config()
 
 
-static func execute(command: String) -> String:
+static func execute(command: String) -> Results:
 	var platform_name: String = get_platform_name()
 	var path: String = platform_config.get_value(platform_name, "path", "")
 
@@ -20,8 +20,8 @@ static func execute(command: String) -> String:
 	arguments.append(command)
 
 	var output: Array[String] = []
-	OS.execute(path, arguments, output, true)
-	return output[0]
+	var exit_code: int = OS.execute(path, arguments, output, true)
+	return Results.new(output, exit_code)
 
 
 static func get_git_describe() -> String:
@@ -31,11 +31,11 @@ static func get_git_describe() -> String:
 	if not is_git_found():
 		return DEFAULT_GIT_DESCRIBE
 
-	var git_describe: String = execute("git describe")
-	if git_describe.is_empty():
+	var results: Results = execute("git describe")
+	if results.exit_code != 0:
 		return DEFAULT_GIT_DESCRIBE
 
-	return git_describe.strip_edges()
+	return results.output[0].strip_edges()
 
 
 static func get_platform_name() -> String:
@@ -46,16 +46,14 @@ static func get_platform_name() -> String:
 
 
 static func is_git_found() -> bool:
-	if not is_platform_configured():
+	var which: String = platform_config.get_value(
+			get_platform_name(), "which", ""
+	)
+	var results: Results = execute(" ".join([which, "git"]))
+	if results.exit_code != 0:
 		return false
 
-	var command: String = " ".join(
-			[
-				platform_config.get_value(get_platform_name(), "which", ""),
-				"git"
-			]
-	)
-	return not execute(command).is_empty()
+	return not results.output[0].is_empty()
 
 
 static func is_git_repository_found() -> bool:
@@ -121,3 +119,13 @@ static func update_version_setting() -> void:
 static func erase_version_setting() -> void:
 	ProjectSettings.set_setting(SETTING_PATH, null)
 	ProjectSettings.save()
+
+
+class Results:
+	var output: Array[String]
+	var exit_code: int
+
+	@warning_ignore("shadowed_variable")
+	func _init(output: Array[String] = [], exit_code := 0) -> void:
+		self.output = output
+		self.exit_code = exit_code
