@@ -30,6 +30,14 @@ text = "{git describe here}"
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 
+[node name="Skipped" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.560815, 0.929641, 0.560815, 1)
+layout_mode = 2
+text = "Running in exported build. Checks skipped."
+autowrap_mode = 3
+
 [node name="PlatformConfigured" type="CheckBox" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
