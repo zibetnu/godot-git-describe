@@ -1,8 +1,6 @@
 extends Control
 
-const Utilities = preload(
-		"res://addons/git_describe_project_setting/utilities.gd"
-)
+const Utilities = preload("res://addons/git_describe/utilities.gd")
 
 @onready var git_describe: Label = %GitDescribe
 @onready var platform_configured: CheckBox = %PlatformConfigured

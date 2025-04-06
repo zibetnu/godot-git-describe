@@ -2,7 +2,7 @@
 extends RefCounted
 
 const DEFAULT_GIT_DESCRIBE = ""
-const CONFIG_PATH = "res://addons/git_describe_project_setting/platforms.cfg"
+const CONFIG_PATH = "res://addons/git_describe/platforms.cfg"
 const REPOSITORY_PATH = "res://"
 const SETTING_PATH = "application/config/git_describe"
 
