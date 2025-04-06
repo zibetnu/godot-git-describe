@@ -50,10 +50,7 @@ static func is_git_found() -> bool:
 			get_platform_name(), "which", ""
 	)
 	var results: Results = execute(" ".join([which, "git"]))
-	if results.exit_code != 0:
-		return false
-
-	return not results.output[0].is_empty()
+	return results.exit_code == 0 and not results.output[0].is_empty()
 
 
 static func is_git_repository_found() -> bool:
@@ -69,14 +66,8 @@ static func is_in_steam_runtime() -> bool:
 	const CAT_COMMAND = "cat"
 	var output: Array[String] = []
 	OS.execute(CAT_COMMAND, ["/etc/os-release"], output)
-	if "steamrt" in output[0]:
-		return true
-
 	OS.execute(CAT_COMMAND, ["/run/host/container-manager"], output)
-	if "pressure-vessel" in output[1]:
-		return true
-
-	return false
+	return "steamrt" in output[0] or "pressure-vessel" in output[1]
 
 
 static func is_platform_configured() -> bool:
