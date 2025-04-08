@@ -1,7 +1,6 @@
 @tool
 extends RefCounted
 
-const DEFAULT_GIT_DESCRIBE = ""
 const CONFIG_PATH = "res://addons/git_describe/platforms.cfg"
 const REPOSITORY_PATH = "res://"
 const DESCRIBE_SETTING = "application/config/git_describe"
@@ -25,6 +24,7 @@ static func execute(command: String) -> Results:
 
 
 static func get_git_describe() -> String:
+	const DEFAULT_GIT_DESCRIBE = ""
 	if not is_git_repository_found():
 		return DEFAULT_GIT_DESCRIBE
 
