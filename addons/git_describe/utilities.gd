@@ -4,7 +4,7 @@ extends RefCounted
 const DEFAULT_GIT_DESCRIBE = ""
 const CONFIG_PATH = "res://addons/git_describe/platforms.cfg"
 const REPOSITORY_PATH = "res://"
-const SETTING_PATH = "application/config/git_describe"
+const DESCRIBE_SETTING = "application/config/git_describe"
 
 static var platform_config: ConfigFile = load_platform_config()
 
@@ -111,12 +111,12 @@ static func push_status() -> void:
 
 
 static func update_version_setting() -> void:
-	ProjectSettings.set_setting(SETTING_PATH, get_git_describe())
+	ProjectSettings.set_setting(DESCRIBE_SETTING, get_git_describe())
 	ProjectSettings.save()
 
 
 static func erase_version_setting() -> void:
-	ProjectSettings.set_setting(SETTING_PATH, null)
+	ProjectSettings.set_setting(DESCRIBE_SETTING, null)
 	ProjectSettings.save()
 
 
