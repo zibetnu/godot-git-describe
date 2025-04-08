@@ -2,7 +2,6 @@ extends Control
 
 const Utilities = preload("res://addons/git_describe/utilities.gd")
 
-@onready var git_describe: Label = %GitDescribe
 @onready var skipped: Label = %Skipped
 @onready var platform_configured: CheckBox = %PlatformConfigured
 @onready var repository_found: CheckBox = %RepositoryFound
@@ -16,12 +15,6 @@ func _ready() -> void:
 
 	else:
 		skipped.show()
-
-	# Normal usage only involves getting the project setting.
-	# Everything else is to make the demo more informative.
-	git_describe.text = ProjectSettings.get_setting(
-			"application/config/git_describe"
-	)
 
 
 func run_checks() -> void:
