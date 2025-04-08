@@ -12,7 +12,7 @@ var exporter := Exporter.new()
 func _enter_tree() -> void:
 	add_debugger_plugin(debugger)
 	add_export_plugin(exporter)
-	Utilities.print_errors()
+	Utilities.push_status()
 
 
 func _build() -> bool:
