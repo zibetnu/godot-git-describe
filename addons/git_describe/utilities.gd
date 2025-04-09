@@ -85,16 +85,16 @@ static func push_status() -> void:
 	if not is_platform_configured():
 		push_error(
 				PRINT_ID,
-				"'%s' configuration not found in '%s'." % [
+				"\"%s\" configuration not found in \"%s\"." % [
 					get_platform_name(),
-					ProjectSettings.globalize_path(CONFIG_PATH)
+					CONFIG_PATH
 				]
 		)
 
 	elif not is_git_repository_found():
 		push_error(
 				PRINT_ID,
-				"Git repository not found in '%s'."
+				"Git repository not found in \"%s\"."
 				% ProjectSettings.globalize_path(REPOSITORY_PATH)
 		)
 
