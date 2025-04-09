@@ -81,7 +81,7 @@ static func load_platform_config() -> ConfigFile:
 
 
 static func push_status() -> void:
-	const PRINT_ID: String = "Godot Git Describe: "
+	const PRINT_ID = "Godot Git Describe: "
 	if not is_platform_configured():
 		push_error(
 				PRINT_ID,
