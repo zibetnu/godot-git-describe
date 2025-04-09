@@ -12,6 +12,10 @@
   </a>
 </p>
 
+Do you use [tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging) to label your project's releases? Do you want to display those labels in your project without manually setting a separate value?
+
+You've come to the right place.
+
 ## Features
 
 - Adds your Git repository's [description](https://git-scm.com/docs/git-describe) to a project setting when you run or export your project.
