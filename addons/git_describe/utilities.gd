@@ -31,7 +31,7 @@ static func get_git_describe() -> String:
 	if not is_git_found():
 		return DEFAULT_GIT_DESCRIBE
 
-	var results: Results = execute("git describe")
+	var results: Results = execute("git describe --always")
 	if results.exit_code != 0:
 		return DEFAULT_GIT_DESCRIBE
 
@@ -74,11 +74,6 @@ static func is_platform_configured() -> bool:
 	return get_platform_name() in platform_config.get_sections()
 
 
-static func is_tag_found() -> bool:
-	var results: Results = execute("git tag")
-	return results.exit_code == 0 and not results.output[0].is_empty()
-
-
 static func load_platform_config() -> ConfigFile:
 	var config := ConfigFile.new()
 	config.load(CONFIG_PATH)
@@ -105,9 +100,6 @@ static func push_status() -> void:
 
 	elif not is_git_found():
 		push_error(PRINT_ID, "Git not found.")
-
-	elif not is_tag_found():
-		push_warning(PRINT_ID, "tag not found.")
 
 
 static func update_version_setting() -> void:
