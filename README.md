@@ -22,7 +22,7 @@ You've come to the right place.
 ## Features
 
 - Adds your Git repository's [description](https://git-scm.com/docs/git-describe) to a project setting when you run or export your project.
-- Avoids cluttering diffs by removing the project setting when you stop your project or an export is finished.
+- Avoids cluttering diffs by clearing the setting when you stop your project or an export is finished.
 - Includes a pre-configured label so you can use this plugin without writing any new code.
 
 ## Installation
