@@ -30,3 +30,14 @@ https://docs.godotengine.org/en/stable/tutorials/plugins/editor/installing_plugi
 
 > [!NOTE]
 > This plugin uses Godot 4.4's UID system. Godot 4.3 and earlier will adjust the UIDs after printing a warning on the first run.
+
+## Usage
+
+1. Label a release using a [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging).
+2. Add a GitDescribeLabel to a scene that you want to display the current release.
+3. Run or export the project.
+
+You can also get the release text from the project setting `"application/config/git_describe"`.
+
+> [!TIP]
+> For best results, do not commit this project setting to version control.
