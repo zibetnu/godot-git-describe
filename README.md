@@ -10,6 +10,9 @@
   <a href="LICENSE">
     <img alt="License" src="https://img.shields.io/github/license/zibetnu/godot-git-describe?style=for-the-badge&color=8eef97">
   </a>
+  <a href="https://github.com/zibetnu/godot-git-describe/releases">
+    <img alt="Latest Release" src="https://img.shields.io/github/v/release/zibetnu/godot-git-describe?include_prereleases&style=for-the-badge&color=ef476f">
+  </a>
 </p>
 
 Do you use [tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging) to label your project's releases? Do you want to display those labels in your project without manually setting a separate value?
