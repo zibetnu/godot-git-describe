@@ -21,3 +21,12 @@ You've come to the right place.
 - Adds your Git repository's [description](https://git-scm.com/docs/git-describe) to a project setting when you run or export your project.
 - Avoids cluttering diffs by removing the project setting when you stop your project or an export is finished.
 - Includes a pre-configured label so you can use this plugin without writing any new code.
+
+## Installation
+
+See the Godot documentation for installing plugins:
+
+https://docs.godotengine.org/en/stable/tutorials/plugins/editor/installing_plugins.html
+
+> [!NOTE]
+> This plugin uses Godot 4.4's UID system. Godot 4.3 and earlier will adjust the UIDs after printing a warning on the first run.
