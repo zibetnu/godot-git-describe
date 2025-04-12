@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Godot Git Describe"
-run/main_scene="res://demo/demo.tscn"
+run/main_scene="res://git_describe_demo/demo.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
 [debug]

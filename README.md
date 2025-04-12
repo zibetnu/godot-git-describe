@@ -1,6 +1,6 @@
 <h1 align="center">Godot Git Describe</h1>
 <p align="center">
-  <img src="./demo/icon.svg", width=30%>
+  <img src="./git_describe_demo/icon.svg", width=30%>
 </p>
 
 <p align="center">
