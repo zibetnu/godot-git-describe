@@ -3,6 +3,7 @@ extends EditorPlugin
 
 const Debugger = preload("debugger.gd")
 const Exporter = preload("exporter.gd")
+const Settings = preload("settings.gd")
 const Utilities = preload("utilities.gd")
 
 var debugger := Debugger.new()
@@ -12,6 +13,7 @@ var exporter := Exporter.new()
 func _enter_tree() -> void:
 	add_debugger_plugin(debugger)
 	add_export_plugin(exporter)
+	Settings.init_settings()
 	Utilities.push_status()
 
 

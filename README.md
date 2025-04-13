@@ -40,7 +40,13 @@ https://docs.godotengine.org/en/stable/tutorials/plugins/editor/installing_plugi
 2. Add a GitDescribeLabel to a scene that you want to display the current release.
 3. Run or export the project.
 
-You can also get the release text from the project setting `"application/config/git_describe"`.
+### Settings
+
+This plugin's project settings are found under the setting path `addons/git_describe`.
+
+| Name | Description | Default Value |
+| - | - | - |
+| Describe Setting Path | Path of the setting to automatically change. | `"application/config/git_describe"` |
 
 > [!TIP]
-> For best results, do not commit this project setting to version control.
+> For best results, do not commit the automatically-changed setting to version control.

@@ -3,9 +3,6 @@ class_name GitDescribeLabel
 extends Label
 ## A label for displaying Git describe text.
 
-## The setting from which the GitDescribeLabel will get the describe string.
-const DESCRIBE_SETTING = "application/config/git_describe"
-
 
 func _ready() -> void:
 	set_text_to_describe()
@@ -13,7 +10,11 @@ func _ready() -> void:
 
 ## Sets [member Label.text] to the describe string unless the string is empty.
 func set_text_to_describe() -> void:
-	var describe: String = ProjectSettings.get_setting(DESCRIBE_SETTING, "")
+	var describe_setting: String = ProjectSettings.get_setting(
+			"addons/git_describe/describe_setting_path",
+			"application/config/git_describe"
+	)
+	var describe: String = ProjectSettings.get_setting(describe_setting, "")
 	if describe.is_empty():
 		return
 
