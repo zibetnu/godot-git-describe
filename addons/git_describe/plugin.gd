@@ -11,6 +11,10 @@ var exporter := Exporter.new()
 
 
 func _enter_tree() -> void:
+	debugger.erase_describe_callable = _erase_describe
+	exporter.erase_describe_callable = _erase_describe
+	exporter.set_describe_callable = _set_describe
+
 	add_debugger_plugin(debugger)
 	add_export_plugin(exporter)
 	Settings.init_settings()
@@ -18,15 +22,23 @@ func _enter_tree() -> void:
 
 
 func _build() -> bool:
-	Utilities.update_version_setting()
+	_set_describe()
 	return true
 
 
 func _disable_plugin() -> void:
 	remove_debugger_plugin(debugger)
 	remove_export_plugin(exporter)
-	Utilities.erase_version_setting()
+	_erase_describe()
 
 
 func _exit_tree() -> void:
 	_disable_plugin()
+
+
+func _set_describe() -> void:
+	Settings.set_describe_setting(Utilities.get_git_describe())
+
+
+func _erase_describe() -> void:
+	Settings.set_describe_setting(null)

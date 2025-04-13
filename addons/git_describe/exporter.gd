@@ -1,6 +1,7 @@
 extends EditorExportPlugin
 
-const Utilities = preload("utilities.gd")
+var set_describe_callable: Callable
+var erase_describe_callable: Callable
 
 
 func _get_name() -> String:
@@ -13,8 +14,8 @@ func _export_begin(
 		_path: String,
 		_flags: int
 ) -> void:
-	Utilities.update_version_setting()
+	set_describe_callable.call()
 
 
 func _export_end() -> void:
-	Utilities.erase_version_setting()
+	erase_describe_callable.call()

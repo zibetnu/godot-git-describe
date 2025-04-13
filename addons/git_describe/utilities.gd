@@ -1,8 +1,6 @@
 @tool
 extends RefCounted
 
-const Settings = preload("settings.gd")
-
 const CONFIG_PATH = "res://addons/git_describe/platforms.cfg"
 const REPOSITORY_PATH = "res://"
 
@@ -101,14 +99,6 @@ static func push_status() -> void:
 
 	elif not is_git_found():
 		push_error(PRINT_ID, "Git not found.")
-
-
-static func update_version_setting() -> void:
-	Settings.set_describe_setting(get_git_describe())
-
-
-static func erase_version_setting() -> void:
-	Settings.set_describe_setting(null)
 
 
 class Results:
