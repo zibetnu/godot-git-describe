@@ -1,11 +1,10 @@
 extends EditorExportPlugin
 
-const NAME = "git_describe_version_exporter"
 const Utilities = preload("utilities.gd")
 
 
 func _get_name() -> String:
-	return NAME
+	return "godot_git_describe_exporter"
 
 
 func _export_begin(
