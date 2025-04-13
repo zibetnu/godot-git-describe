@@ -15,6 +15,12 @@
   </a>
 </p>
 
+<p align="center">
+  <img alt="Linux" src="https://img.shields.io/badge/Linux-fcc624?style=flat-square&logo=linux&logoColor=333333">
+  <img alt="Steam Linux Runtime" src="https://img.shields.io/badge/Steam_Linux_Runtime-000000?style=flat-square&logo=steam">
+  <img alt="Windows" src="https://img.shields.io/badge/Windows-007acf?style=flat-square">
+</p>
+
 Do you use [tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging) to label your project's releases? Do you want to display those labels in your project without manually setting a separate value?
 
 You've come to the right place.
