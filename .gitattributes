@@ -2,8 +2,9 @@
 * text=auto eol=lf
 
 # Only include the plugin and demo when downloading from the Asset Library.
-/**                   export-ignore
-/addons               !export-ignore
-/addons/**            !export-ignore
-/git_describe_demo    !export-ignore
-/git_describe_demo/** !export-ignore
+/**                             export-ignore
+/addons                         !export-ignore
+/addons/**                      !export-ignore
+/addons/git_describe/plugin.cfg export-subst
+/git_describe_demo              !export-ignore
+/git_describe_demo/**           !export-ignore
