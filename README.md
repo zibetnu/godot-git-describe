@@ -27,9 +27,9 @@ You've come to the right place.
 
 ## Features
 
-- Adds your Git repository's [description](https://git-scm.com/docs/git-describe) to a project setting when you run or export your project.
-- Avoids cluttering diffs by clearing the setting when you stop your project or an export is finished.
-- Includes a pre-configured label so you can use this plugin without writing any new code.
+- Adds your Git repository's [description](https://git-scm.com/docs/git-describe) to your project when you run or export it.
+- Avoids cluttering diffs by reversing changes when you stop your project or an export is finished.
+- Batteries included: comes with nodes and settings that cover common use cases.
 
 ## Installation
 
@@ -43,16 +43,17 @@ https://docs.godotengine.org/en/stable/tutorials/plugins/editor/installing_plugi
 ## Usage
 
 1. Label a release using a [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging).
-2. Add a GitDescribeLabel to a scene that you want to display the current release.
+2. Add a GitDescribeLabel to a scene or adjust project settings as desired.
 3. Run or export the project.
+
+> [!TIP]
+> For best results, do not commit automatic changes to version control.
 
 ### Settings
 
-This plugin's project settings are found under the setting path `addons/git_describe`.
+GGD's project settings are found under the setting path `addons/git_describe`.
 
 | Name | Description | Default Value |
 | - | - | - |
-| Describe Setting Path | Path of the setting to automatically change. | `"application/config/git_describe"` |
-
-> [!TIP]
-> For best results, do not commit the automatically-changed setting to version control.
+| Describe Setting Path | Path of the setting that GGD sets to the describe string on run or export. | `application/config/git_describe` |
+| Append Describe to Project Name | If `true`, GGD appends the describe string to your project's name on run or export. | `false` |
