@@ -37,7 +37,9 @@ func _exit_tree() -> void:
 
 
 func _set_describe() -> void:
-	var describe: String = Utilities.get_git_describe()
+	var describe: String = Utilities.get_git_describe(
+			Settings.get_command_options()
+	)
 	Settings.set_describe_setting(describe)
 	Settings.append_project_name(describe, true)
 
