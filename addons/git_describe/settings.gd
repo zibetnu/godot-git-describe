@@ -1,11 +1,11 @@
 extends RefCounted
 
-const BASE = "addons/git_describe"
+const BASE = "addons/git_describe/"
 
-const SETTING_PATH_SETTING = BASE + "/describe_setting_path"
+const SETTING_PATH_SETTING = BASE + "describe_setting_path"
 const DEFAULT_SETTING_PATH = "application/config/git_describe"
 
-const APPEND_PROJECT_NAME_SETTING = BASE + "/append_describe_to_project_name"
+const APPEND_PROJECT_NAME_SETTING = BASE + "append_describe_to_project_name"
 const DEFAULT_APPEND_PROJECT_NAME = false
 const PROJECT_NAME_SETTING = "application/config/name"
 
