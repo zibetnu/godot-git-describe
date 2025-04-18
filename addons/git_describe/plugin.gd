@@ -11,9 +11,9 @@ var exporter := Exporter.new()
 
 
 func _enter_tree() -> void:
-	debugger.erase_describe_callable = _erase_describe
-	exporter.erase_describe_callable = _erase_describe
-	exporter.set_describe_callable = _set_describe
+	debugger.session_stopped.connect(_erase_describe)
+	exporter.export_began.connect(_set_describe)
+	exporter.export_ended.connect(_erase_describe)
 
 	add_debugger_plugin(debugger)
 	add_export_plugin(exporter)

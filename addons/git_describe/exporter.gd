@@ -1,7 +1,7 @@
 extends EditorExportPlugin
 
-var set_describe_callable: Callable
-var erase_describe_callable: Callable
+signal export_began
+signal export_ended
 
 
 func _get_name() -> String:
@@ -14,8 +14,8 @@ func _export_begin(
 		_path: String,
 		_flags: int
 ) -> void:
-	set_describe_callable.call()
+	export_began.emit()
 
 
 func _export_end() -> void:
-	erase_describe_callable.call()
+	export_ended.emit()
