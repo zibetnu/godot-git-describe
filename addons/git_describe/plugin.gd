@@ -57,13 +57,11 @@ func _set_describe() -> void:
 			Settings.get_command_options()
 	)
 	Settings.set_describe_setting(describe)
-	Settings.append_project_name(describe, true)
 	for extension in extensions:
 		extension.set_describe(describe)
 
 
 func _erase_describe() -> void:
 	Settings.set_describe_setting(null)
-	Settings.append_project_name(Settings.cached_describe, false)
 	for extension in extensions:
 		extension.erase_describe()
