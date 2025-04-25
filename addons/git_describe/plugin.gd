@@ -56,12 +56,10 @@ func _set_describe() -> void:
 	var describe: String = Utilities.get_git_describe(
 			Settings.get_command_options()
 	)
-	Settings.set_describe_setting(describe)
 	for extension in extensions:
 		extension.set_describe(describe)
 
 
 func _erase_describe() -> void:
-	Settings.set_describe_setting(null)
 	for extension in extensions:
 		extension.erase_describe()
