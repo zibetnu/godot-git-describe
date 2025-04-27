@@ -3,8 +3,11 @@ extends EditorPlugin
 
 const Debugger = preload("debugger.gd")
 const Exporter = preload("exporter.gd")
-const Settings = preload("settings.gd")
+const PluginSettings = preload("settings.gd")
 const Utilities = preload("utilities.gd")
+
+const COMMAND_OPTIONS_SETTING = "command_options"
+const DEFAULT_COMMAND_OPTIONS = "--always"
 
 var debugger := Debugger.new()
 var exporter := Exporter.new()
@@ -15,10 +18,14 @@ func _enter_tree() -> void:
 	debugger.session_stopped.connect(_erase_describe)
 	exporter.export_began.connect(_set_describe)
 	exporter.export_ended.connect(_erase_describe)
-
 	add_debugger_plugin(debugger)
 	add_export_plugin(exporter)
-	Settings.init_settings()
+
+	PluginSettings.init_setting(
+			COMMAND_OPTIONS_SETTING,
+			DEFAULT_COMMAND_OPTIONS,
+			false
+	)
 	Utilities.push_status()
 	_init_extensions()
 
@@ -53,9 +60,11 @@ func _init_extensions() -> void:
 
 
 func _set_describe() -> void:
-	var describe: String = Utilities.get_git_describe(
-			Settings.get_command_options()
+	var options: String = PluginSettings.get_setting(
+			COMMAND_OPTIONS_SETTING,
+			DEFAULT_COMMAND_OPTIONS
 	)
+	var describe: String = Utilities.get_git_describe(options)
 	for extension in extensions:
 		extension.set_describe(describe)
 

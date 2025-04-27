@@ -1,17 +1,15 @@
 @tool
 extends RefCounted
 
-const BASE = "addons/git_describe/"
-
-const COMMAND_OPTIONS_SETTING = BASE + "command_options"
-const DEFAULT_COMMAND_OPTIONS = "--always"
+const SETTINGS_BASE_PATH = "addons/git_describe"
 
 
 static func init_setting(
-		setting_name: String,
+		partial_name: String,
 		initial_value: Variant,
 		basic := true
 ) -> void:
+	var setting_name: String = SETTINGS_BASE_PATH.path_join(partial_name)
 	if not ProjectSettings.has_setting(setting_name):
 		ProjectSettings.set_setting(setting_name, initial_value)
 
@@ -19,12 +17,11 @@ static func init_setting(
 	ProjectSettings.set_initial_value(setting_name, initial_value)
 
 
-static func init_settings() -> void:
-	init_setting(COMMAND_OPTIONS_SETTING, DEFAULT_COMMAND_OPTIONS, false)
-
-
-static func get_command_options() -> String:
+static func get_setting(
+		partial_name: String,
+		default_value: Variant
+) -> Variant:
 	return ProjectSettings.get_setting(
-			COMMAND_OPTIONS_SETTING,
-			DEFAULT_COMMAND_OPTIONS
+			SETTINGS_BASE_PATH.path_join(partial_name),
+			default_value
 	)
