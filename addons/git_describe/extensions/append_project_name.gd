@@ -6,7 +6,7 @@ var cached_describe: String
 
 
 func _init() -> void:
-	init_setting(SETTING_NAME, false)
+	PluginSettings.init_setting(SETTING_NAME, false)
 
 
 func _set_describe(describe: String) -> void:
@@ -18,7 +18,7 @@ func _erase_describe() -> void:
 
 
 func append_project_name(describe: String, append: bool) -> void:
-	if not get_setting(SETTING_NAME, false):
+	if not PluginSettings.get_setting(SETTING_NAME, false):
 		return
 
 	const PROJECT_NAME_SETTING = "application/config/name"

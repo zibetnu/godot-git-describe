@@ -5,7 +5,7 @@ const SETTING_DEFAULT_VALUE = "application/config/git_describe"
 
 
 func _init() -> void:
-	init_setting(SETTING_NAME, SETTING_DEFAULT_VALUE)
+	PluginSettings.init_setting(SETTING_NAME, SETTING_DEFAULT_VALUE)
 
 
 func _set_describe(describe: String) -> void:
@@ -17,7 +17,7 @@ func _erase_describe() -> void:
 
 
 func set_describe_setting(value: Variant) -> void:
-	var describe_setting: String = get_setting(
+	var describe_setting: String = PluginSettings.get_setting(
 			SETTING_NAME,
 			SETTING_DEFAULT_VALUE
 	)

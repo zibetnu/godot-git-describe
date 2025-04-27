@@ -25,3 +25,11 @@ static func get_setting(
 			SETTINGS_BASE_PATH.path_join(partial_name),
 			default_value
 	)
+
+
+static func set_setting(partial_name: String, value: Variant) -> void:
+	ProjectSettings.set_setting(
+			SETTINGS_BASE_PATH.path_join(partial_name),
+			value
+	)
+	ProjectSettings.save()
