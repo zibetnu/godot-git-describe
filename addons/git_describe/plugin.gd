@@ -27,7 +27,7 @@ func _enter_tree() -> void:
 			false
 	)
 	Utilities.push_status()
-	_init_extensions()
+	_init_extensions_at("res://addons/git_describe/extensions")
 
 
 func _build() -> bool:
@@ -45,18 +45,23 @@ func _exit_tree() -> void:
 	_disable_plugin()
 
 
-func _init_extensions() -> void:
-	const EXTENSIONS_DIR = "res://addons/git_describe/extensions"
-	if not DirAccess.dir_exists_absolute(EXTENSIONS_DIR):
+func _init_extensions_at(path: String) -> void:
+	if not DirAccess.dir_exists_absolute(path):
 		return
 
-	for file in DirAccess.get_files_at(EXTENSIONS_DIR):
+	for file in DirAccess.get_files_at(path):
 		if not file.ends_with(".gd"):
 			continue
 
-		extensions.append(
-				(load(EXTENSIONS_DIR.path_join(file)) as GDScript).new()
-		)
+		var script := load(path.path_join(file)) as GDScript
+		if script == null:
+			continue
+
+		var extension := script.new() as GitDescribeExtension
+		if extension == null:
+			continue
+
+		extensions.append(extension)
 
 
 func _set_describe() -> void:
