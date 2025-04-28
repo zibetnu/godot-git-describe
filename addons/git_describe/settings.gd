@@ -7,11 +7,16 @@ const SETTINGS_BASE_PATH = "addons/git_describe"
 static func init_setting(
 		partial_name: String,
 		initial_value: Variant,
-		basic := true
+		basic := true,
+		property_info := {}
 ) -> void:
 	var setting_name: String = SETTINGS_BASE_PATH.path_join(partial_name)
 	if not ProjectSettings.has_setting(setting_name):
 		ProjectSettings.set_setting(setting_name, initial_value)
+
+	if property_info.has("type"):
+		property_info["name"] = setting_name
+		ProjectSettings.add_property_info(property_info)
 
 	ProjectSettings.set_as_basic(setting_name, basic)
 	ProjectSettings.set_initial_value(setting_name, initial_value)
