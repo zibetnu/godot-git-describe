@@ -32,6 +32,16 @@ func _enter_tree() -> void:
 
 	_init_extensions_at("res://addons/git_describe/extensions")
 
+	const USER_DIR_SETTING = "user_extensions_dir"
+	var property_info := {
+		"type": TYPE_STRING,
+		"hint": PROPERTY_HINT_DIR,
+	}
+	PluginSettings.init_setting(USER_DIR_SETTING, "", false, property_info)
+	_init_extensions_at(
+			PluginSettings.get_setting(USER_DIR_SETTING) as String
+	)
+
 
 func _build() -> bool:
 	_set_describe()
