@@ -19,7 +19,7 @@ static func init_setting(
 
 static func get_setting(
 		partial_name: String,
-		default_value: Variant
+		default_value: Variant = null
 ) -> Variant:
 	return ProjectSettings.get_setting(
 			SETTINGS_BASE_PATH.path_join(partial_name),
