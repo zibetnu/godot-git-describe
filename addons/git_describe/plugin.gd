@@ -15,10 +15,13 @@ var extensions: Array[GitDescribeExtension]
 
 
 func _enter_tree() -> void:
+	Utilities.push_status()
+
 	debugger.session_stopped.connect(_erase_describe)
+	add_debugger_plugin(debugger)
+
 	exporter.export_began.connect(_set_describe)
 	exporter.export_ended.connect(_erase_describe)
-	add_debugger_plugin(debugger)
 	add_export_plugin(exporter)
 
 	PluginSettings.init_setting(
@@ -26,7 +29,7 @@ func _enter_tree() -> void:
 			DEFAULT_COMMAND_OPTIONS,
 			false
 	)
-	Utilities.push_status()
+
 	_init_extensions_at("res://addons/git_describe/extensions")
 
 
