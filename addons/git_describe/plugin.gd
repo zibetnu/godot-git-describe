@@ -37,7 +37,9 @@ func _enter_tree() -> void:
 		"type": TYPE_STRING,
 		"hint": PROPERTY_HINT_DIR,
 	}
-	PluginSettings.init_setting(USER_DIR_SETTING, "", false, property_info)
+	PluginSettings.init_setting(
+			USER_DIR_SETTING, "", false, true, property_info
+	)
 	_init_extensions_at(
 			PluginSettings.get_setting(USER_DIR_SETTING) as String
 	)

@@ -8,6 +8,7 @@ static func init_setting(
 		partial_name: String,
 		initial_value: Variant,
 		basic := true,
+		restart_if_changed := false,
 		property_info := {}
 ) -> void:
 	var setting_name: String = SETTINGS_BASE_PATH.path_join(partial_name)
@@ -20,6 +21,7 @@ static func init_setting(
 
 	ProjectSettings.set_as_basic(setting_name, basic)
 	ProjectSettings.set_initial_value(setting_name, initial_value)
+	ProjectSettings.set_restart_if_changed(setting_name, restart_if_changed)
 
 
 static func get_setting(
