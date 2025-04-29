@@ -43,6 +43,7 @@ func _enter_tree() -> void:
 	_init_extensions_at(
 			PluginSettings.get_setting(USER_DIR_SETTING) as String
 	)
+	PluginSettings.sort_settings()
 
 
 func _build() -> bool:

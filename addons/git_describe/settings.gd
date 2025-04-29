@@ -40,3 +40,35 @@ static func set_setting(partial_name: String, value: Variant) -> void:
 			value
 	)
 	ProjectSettings.save()
+
+
+static func sort_settings() -> void:
+	var property_list: Array[Dictionary] = ProjectSettings.get_property_list()
+	var properties_to_sort: Array[Dictionary] = []
+	var order_start: int = property_list.size()
+	for property in property_list:
+		var property_name: String = property.name
+		if not property_name.begins_with(SETTINGS_BASE_PATH):
+			continue
+
+		var order: int = ProjectSettings.get_order(property_name)
+		if order < order_start:
+			order_start = order
+
+		properties_to_sort.append(property)
+
+	# Uses lambda instead of separate method to avoid an issue in Godot 4.1.
+	var sort_func: Callable = func (a: Dictionary, b: Dictionary) -> bool:
+		var a_is_basic: bool = a.usage & PROPERTY_USAGE_EDITOR_BASIC_SETTING
+		var b_is_basic: bool = b.usage & PROPERTY_USAGE_EDITOR_BASIC_SETTING
+		if a_is_basic != b_is_basic:
+			return a_is_basic
+
+		return a.name < b.name
+
+	properties_to_sort.sort_custom(sort_func)
+	for i in range(properties_to_sort.size()):
+		ProjectSettings.set_order(
+				properties_to_sort[i].name as String,
+				order_start + i
+		)
