@@ -58,5 +58,19 @@ GGD's project settings are found under the setting path `addons/git_describe`.
 | Append Describe to Project Name | If `true`, GGD appends the describe string to your project's name on run or export. | `false` |
 | Describe Setting Path | Path of the setting that GGD sets to the describe string on run or export. | `"application/config/git_describe"` |
 | Command Options<sup>[1]</sup> | Options that GGD passes to the describe command. See the [Git docs](https://git-scm.com/docs/git-describe) for available options. | `"--always"` |
+| User Extensions Dir<sup>[1]</sup> | Directory that GGD searches for user-made [extensions](#extensions) to load on startup. Allows presence of unrelated files. | `""` |
 
 [1]: Advanced setting; only shown when the "Advanced Settings" option is enabled.
+
+### Extensions
+
+Extensions add new features for GGD to use when you run or export your project. GGD uses extensions internally, which are a helpful reference when making your own.
+
+To create and enable an extension:
+
+1. Create a script that extends `GitDescribeExtension`
+2. Override `_init` with any setup your extension needs
+3. Override `_set_describe` to make changes with the describe string
+4. Override `_erase_describe` to undo the changes made by `_set_describe`
+5. Set the "User Extensions Dir" project setting to the directory that contains your extension
+6. Reload the project
