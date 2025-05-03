@@ -42,9 +42,9 @@ https://docs.godotengine.org/en/stable/tutorials/plugins/editor/installing_plugi
 
 ## Usage
 
-1. Label a release using a [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging).
-2. Add a GitDescribeLabel to a scene or adjust project settings as desired.
-3. Run or export the project.
+1. Label a release using a [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging)
+2. Add a GitDescribeLabel to a scene or adjust project settings as desired
+3. Run or export the project
 
 > [!TIP]
 > For best results, do not commit automatic changes to version control.
