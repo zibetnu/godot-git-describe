@@ -1,7 +1,10 @@
 extends EditorDebuggerPlugin
 
-var erase_describe_callable: Callable
+signal session_stopped
 
 
 func _setup_session(session_id: int) -> void:
-	get_session(session_id).stopped.connect(erase_describe_callable)
+	get_session(session_id).stopped.connect(
+			# Wrapped in lambda function to stay compatible with 4.1.
+			func () -> void: session_stopped.emit()
+	)
