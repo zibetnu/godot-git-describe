@@ -1,39 +1,41 @@
 extends GitDescribeExtension
 
-const SETTING_NAME = "append_describe_to_project_name"
+const APPEND_SETTING = "append_describe_to_project_name"
+const PROJECT_NAME_SETTING = "application/config/name"
 
-var cached_describe: String
+var cached_project_name: String
+var nothing_to_undo: bool
 
 
 func _init() -> void:
-	PluginSettings.init_setting(SETTING_NAME, false)
+	PluginSettings.init_setting(APPEND_SETTING, false)
 
 
 func _set_describe(describe: String) -> void:
-	append_project_name(describe, true)
+	if not PluginSettings.get_setting(APPEND_SETTING, false):
+		return
+
+	nothing_to_undo = describe.is_empty()
+	if describe.is_empty():
+		return
+
+	cached_project_name = ProjectSettings.get_setting(PROJECT_NAME_SETTING)
+	ProjectSettings.set_setting(
+			PROJECT_NAME_SETTING,
+			" ".join([cached_project_name, describe])
+	)
 
 
 func _erase_describe() -> void:
-	append_project_name(cached_describe, false)
-
-
-func append_project_name(describe: String, append: bool) -> void:
-	if not PluginSettings.get_setting(SETTING_NAME, false):
+	if not PluginSettings.get_setting(APPEND_SETTING, false):
 		return
 
-	const PROJECT_NAME_SETTING = "application/config/name"
-	var project_name: String = ProjectSettings.get_setting(
-			PROJECT_NAME_SETTING
-	)
-	var separated_describe: String = " " + describe
-	match [append, project_name.ends_with(separated_describe)]:
-		[false, true]:
-			cached_describe = ""
-			project_name = project_name.replace(separated_describe, "")
+	if cached_project_name.is_empty():
+		return
 
-		[true, false]:
-			cached_describe = describe
-			project_name += separated_describe
+	if nothing_to_undo:
+		return
 
-	ProjectSettings.set_setting(PROJECT_NAME_SETTING, project_name)
-	ProjectSettings.save()
+	ProjectSettings.set_setting(PROJECT_NAME_SETTING, cached_project_name)
+	cached_project_name = ""
+	nothing_to_undo = true
