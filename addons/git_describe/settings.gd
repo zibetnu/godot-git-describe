@@ -57,18 +57,18 @@ static func sort_settings() -> void:
 
 		properties_to_sort.append(property)
 
-	# Uses lambda instead of separate method to avoid an issue in Godot 4.1.
-	var sort_func: Callable = func (a: Dictionary, b: Dictionary) -> bool:
-		var a_is_basic: bool = a.usage & PROPERTY_USAGE_EDITOR_BASIC_SETTING
-		var b_is_basic: bool = b.usage & PROPERTY_USAGE_EDITOR_BASIC_SETTING
-		if a_is_basic != b_is_basic:
-			return a_is_basic
-
-		return a.name < b.name
-
-	properties_to_sort.sort_custom(sort_func)
+	properties_to_sort.sort_custom(_setting_sort)
 	for i in range(properties_to_sort.size()):
 		ProjectSettings.set_order(
 				properties_to_sort[i].name as String,
 				order_start + i
 		)
+
+
+static func _setting_sort(a: Dictionary, b: Dictionary) -> bool:
+	var a_is_basic: bool = a.usage & PROPERTY_USAGE_EDITOR_BASIC_SETTING
+	var b_is_basic: bool = b.usage & PROPERTY_USAGE_EDITOR_BASIC_SETTING
+	if a_is_basic != b_is_basic:
+		return a_is_basic
+
+	return a.name < b.name
