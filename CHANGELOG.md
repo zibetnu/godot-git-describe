@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2025-05-07
+
+### Added
+
+- Extension system to make it easier for users to add custom features.
+- Warning when describe strings will affect the user directory's path.
+
+### Fixed
+
+- Removing describe string from project name removes all spaces if the describe was empty.
+
+### Removed
+
+- Support for Godot 4.1.
+
 ## [0.4.0] - 2025-04-17
 
 ### Added
@@ -50,6 +65,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Label that displays the describe setting out of the box.
 - Demo scene with a status report.
 
+[0.5.0]: https://github.com/zibetnu/godot-git-describe/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/zibetnu/godot-git-describe/compare/0.3.0...0.4.0
 [0.3.0]: https://github.com/zibetnu/godot-git-describe/compare/0.2.1...0.3.0
 [0.2.1]: https://github.com/zibetnu/godot-git-describe/compare/0.2.0...0.2.1
