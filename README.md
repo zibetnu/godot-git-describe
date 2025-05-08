@@ -68,9 +68,9 @@ Extensions add new features for GGD to use when you run or export your project. 
 
 To create and enable an extension:
 
-1. Create a script that extends `GitDescribeExtension`
-2. Override `_init` with any setup your extension needs
-3. Override `_set_describe` to make changes with the describe string
-4. Override `_erase_describe` to undo the changes made by `_set_describe`
-5. Set the "User Extensions Dir" project setting to the directory that contains your extension
-6. Reload the project
+1. Create a script that extends `GitDescribeExtension`.
+2. Override `_init` with any setup your extension needs.
+3. Override `_set_describe` to make changes with the describe string.
+4. Override `_erase_describe` to undo the changes made by `_set_describe`.
+5. Set the "User Extensions Dir" project setting to the directory that contains your extension.
+6. Reload the project.
