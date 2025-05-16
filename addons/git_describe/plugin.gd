@@ -7,7 +7,7 @@ const PluginSettings = preload("settings.gd")
 const Utilities = preload("utilities.gd")
 
 const COMMAND_OPTIONS_SETTING = "command_options"
-const DEFAULT_COMMAND_OPTIONS = "--always"
+const DEFAULT_COMMAND_OPTIONS = "--always --tags"
 
 var debugger := Debugger.new()
 var exporter := Exporter.new()
