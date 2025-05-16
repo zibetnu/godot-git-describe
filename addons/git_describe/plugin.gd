@@ -54,11 +54,10 @@ func _build() -> bool:
 func _disable_plugin() -> void:
 	remove_debugger_plugin(debugger)
 	remove_export_plugin(exporter)
-	_erase_describe()
 
 
 func _exit_tree() -> void:
-	_disable_plugin()
+	_erase_describe()
 
 
 func _init_extensions_at(path: String) -> void:
