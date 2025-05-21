@@ -43,12 +43,20 @@ See the Godot docs for [detailed instructions](https://docs.godotengine.org/en/s
 
 ## Usage
 
-1. Label a release using a [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging).
-2. Add a GitDescribeLabel to a scene or adjust project settings as desired.
+1. Add a [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) to your Git repo.
+2. Add included nodes and adjust project settings as desired.
 3. Run or export the project.
 
 > [!TIP]
 > For best results, do not commit automatic changes to version control.
+
+### Nodes
+
+| Name | Description |
+| - | - |
+| ProjectSettingLabel | A label for displaying the value of a project setting. Base class for the other labels. |
+| GitDescribeLabel | A label that automatically displays the Git describe string. |
+| GitHashLabel | A label that automatically displays the latest Git commit hash. |
 
 ### Settings
 
