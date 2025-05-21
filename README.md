@@ -33,12 +33,13 @@ You've come to the right place.
 
 ## Installation
 
-See the Godot documentation for installing plugins:
+1. Use Godot to download GGD from the [Asset Library](https://godotengine.org/asset-library/asset/3931) (recommended) or get the latest [GitHub release](https://github.com/zibetnu/godot-git-describe/releases).
+2. Enable GGD in the project settings.
 
-https://docs.godotengine.org/en/stable/tutorials/plugins/editor/installing_plugins.html
+See the Godot docs for [detailed instructions](https://docs.godotengine.org/en/stable/tutorials/plugins/editor/installing_plugins.html) if needed.
 
 > [!NOTE]
-> This plugin uses Godot 4.4's UID system. Godot 4.3 and earlier will adjust the UIDs after printing a warning on the first run.
+> GGD uses Godot 4.4's UID system. Godot 4.3 and earlier will adjust the UIDs after printing a warning on the first run.
 
 ## Usage
 
@@ -74,3 +75,12 @@ To create and enable an extension:
 4. Override `_erase_describe` to undo the changes made by `_set_describe`.
 5. Set the "User Extensions Dir" project setting to the directory that contains your extension.
 6. Reload the project.
+
+## Contributing
+
+Contributions are welcome. Please follow these guidelines:
+
+- Open an issue to allow discussion before making a pull request.
+- [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow)
+- [GDScript style guide](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html)
+- [The seven rules of a great Git commit message](https://cbea.ms/git-commit/)
