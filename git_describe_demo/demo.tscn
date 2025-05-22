@@ -27,6 +27,8 @@ expand_mode = 3
 layout_mode = 2
 text = "{git describe here}"
 script = ExtResource("3_dar0o")
+setting_name = "addons/git_describe/describe_setting_path"
+default_value = "application/config/git_describe"
 metadata/_custom_type_script = "uid://cwjb3x45e2r4k"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
