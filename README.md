@@ -27,8 +27,8 @@ You've come to the right place.
 
 ## Features
 
-- Adds your Git repository's [description](https://git-scm.com/docs/git-describe) to your project when you run or export it.
-- Avoids cluttering diffs by reversing changes when you stop your project or an export is finished.
+- Adds your Git repository's [description](https://git-scm.com/docs/git-describe) to your project on run or export.
+- Reverts changes when you stop your project or an export is finished.
 - Batteries included: comes with nodes and settings that cover common use cases.
 
 ## Installation
