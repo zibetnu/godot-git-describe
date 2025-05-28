@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2025-05-28
+
+### Added
+
+- Label that automatically displays the latest Git commit hash.
+- Label for displaying the value of a project setting. Acts as a base class for the other labels.
+- Automatic project setting with the latest Git commit hash.
+- More information in the install instructions.
+- Contribution guidelines.
+
+### Changed
+
+- GGD now uses looks for any tags by default, not just annotated tags.
+
+### Fixed
+
+- Error when disabling plugin.
+
 ## [0.5.0] - 2025-05-07
 
 ### Added
@@ -65,6 +83,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Label that displays the describe setting out of the box.
 - Demo scene with a status report.
 
+[0.6.0]: https://github.com/zibetnu/godot-git-describe/compare/0.5.0...0.6.0
 [0.5.0]: https://github.com/zibetnu/godot-git-describe/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/zibetnu/godot-git-describe/compare/0.3.0...0.4.0
 [0.3.0]: https://github.com/zibetnu/godot-git-describe/compare/0.2.1...0.3.0
