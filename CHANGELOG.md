@@ -16,7 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
-- GGD now uses looks for any tags by default, not just annotated tags.
+- GGD now uses any tags by default, not just annotated tags.
 
 ### Fixed
 
