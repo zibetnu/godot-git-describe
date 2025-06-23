@@ -8,17 +8,18 @@
     <img alt="Godot v4.2+" src="https://img.shields.io/badge/Godot_v4.2+-478cbf?logo=godotengine&logoColor=ffffff&style=for-the-badge" />
   </a>
   <a href="LICENSE">
-    <img alt="License" src="https://img.shields.io/github/license/zibetnu/godot-git-describe?style=for-the-badge&color=8eef97">
+    <img alt="License" src="https://img.shields.io/github/license/zibetnu/godot-git-describe?labelColor=1c1c1e&style=for-the-badge&color=8eef97">
   </a>
   <a href="https://github.com/zibetnu/godot-git-describe/releases">
-    <img alt="Latest Release" src="https://img.shields.io/github/v/release/zibetnu/godot-git-describe?include_prereleases&style=for-the-badge&color=ef476f">
+    <img alt="Latest Release" src="https://img.shields.io/github/v/release/zibetnu/godot-git-describe?include_prereleases&labelColor=1c1c1e&style=for-the-badge&color=ef476f">
   </a>
 </p>
 
 <p align="center">
-  <img alt="Linux" src="https://img.shields.io/badge/Linux-fcc624?style=flat-square&logo=linux&logoColor=333333">
-  <img alt="Steam Linux Runtime" src="https://img.shields.io/badge/Steam_Linux_Runtime-000000?style=flat-square&logo=steam">
-  <img alt="Windows" src="https://img.shields.io/badge/Windows-007acf?style=flat-square">
+  <img alt="Linux" src="https://img.shields.io/badge/Linux-fcc624?style=flat-square&logo=linux&logoColor=1c1c1e">
+  <img alt="macOS" src="https://img.shields.io/badge/macOS-1c1c1e?style=flat-square&logo=apple">
+  <img alt="Steam Linux Runtime" src="https://img.shields.io/badge/Steam_Linux_Runtime-171d25?style=flat-square&logo=steam">
+  <img alt="Windows" src="https://img.shields.io/badge/Windows-0067b8?style=flat-square">
 </p>
 
 Do you use [tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging) to label your project's releases? Do you want to display those labels in your project without manually setting a separate value?
