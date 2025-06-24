@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] - 2025-06-24
+
+### Added
+
+- Support for macOS. Thanks, [walfie](https://github.com/walfie)!
+- "git status" check that pushes an error if something is wrong. This should catch most problems that weren't already accounted for.
+
 ## [0.6.0] - 2025-05-28
 
 ### Added
@@ -83,6 +90,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Label that displays the describe setting out of the box.
 - Demo scene with a status report.
 
+[0.7.0]: https://github.com/zibetnu/godot-git-describe/compare/0.6.0...0.7.0
 [0.6.0]: https://github.com/zibetnu/godot-git-describe/compare/0.5.0...0.6.0
 [0.5.0]: https://github.com/zibetnu/godot-git-describe/compare/0.4.0...0.5.0
 [0.4.0]: https://github.com/zibetnu/godot-git-describe/compare/0.3.0...0.4.0
