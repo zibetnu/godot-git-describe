@@ -99,6 +99,11 @@ static func push_status() -> void:
 
 	elif not is_git_found():
 		push_error(PRINT_ID, "Git not found.")
+		return
+
+	var results: Results = execute("git status")
+	if results.exit_code != 0:
+		push_error(PRINT_ID, "\n", "".join(results.output))
 
 
 class Results:

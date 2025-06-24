@@ -62,3 +62,10 @@ layout_mode = 2
 focus_mode = 0
 button_mask = 0
 text = "Git found"
+
+[node name="GitStatusOK" type="CheckBox" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+button_mask = 0
+text = "Git status OK"
