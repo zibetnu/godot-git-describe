@@ -1,8 +1,6 @@
 @tool
 extends EditorPlugin
 
-const Debugger = preload("debugger.gd")
-const Exporter = preload("exporter.gd")
 const PluginSettings = preload("settings.gd")
 const Utilities = preload("utilities.gd")
 
@@ -92,3 +90,36 @@ func _set_describe() -> void:
 func _erase_describe() -> void:
 	for extension in extensions:
 		extension.erase_describe()
+
+
+class Debugger:
+	extends EditorDebuggerPlugin
+
+	signal session_stopped
+
+	func _setup_session(session_id: int) -> void:
+		get_session(session_id).stopped.connect(
+				# Wrapped in lambda function to work in Godot 4.2.
+				func () -> void: session_stopped.emit()
+		)
+
+
+class Exporter:
+	extends EditorExportPlugin
+
+	signal export_began
+	signal export_ended
+
+	func _get_name() -> String:
+		return "godot_git_describe_exporter"
+
+	func _export_begin(
+			_features: PackedStringArray,
+			_is_debug: bool,
+			_path: String,
+			_flags: int
+	) -> void:
+		export_began.emit()
+
+	func _export_end() -> void:
+		export_ended.emit()
