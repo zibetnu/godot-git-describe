@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] - 2025-09-12
+
+## Added
+
+- Limitations section that suggests an alternative.
+
+## Changed
+
+- Refactored a few things.
+- Updated contribution guidelines.
+
 ## [0.7.0] - 2025-06-24
 
 ### Added
@@ -90,6 +101,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Label that displays the describe setting out of the box.
 - Demo scene with a status report.
 
+[1.0.0]: https://github.com/zibetnu/godot-git-describe/compare/0.7.0...1.0.0
 [0.7.0]: https://github.com/zibetnu/godot-git-describe/compare/0.6.0...0.7.0
 [0.6.0]: https://github.com/zibetnu/godot-git-describe/compare/0.5.0...0.6.0
 [0.5.0]: https://github.com/zibetnu/godot-git-describe/compare/0.4.0...0.5.0
