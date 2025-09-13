@@ -32,6 +32,10 @@ You've come to the right place.
 - Reverts changes when you stop your project or an export is finished.
 - Batteries included: comes with nodes and settings that cover common use cases.
 
+## Limitations
+
+GGD relies on Godot's export process. Workflows without that export process may instead benefit from [Git export substitution](https://git-scm.com/docs/gitattributes#_export_subst). See [.gitattributes](./.gitattributes) and [plugin.cfg](./addons/git_describe/plugin.cfg) for an example of this in action.
+
 ## Installation
 
 1. Use Godot to download GGD from the [Asset Library](https://godotengine.org/asset-library/asset/3931) (recommended) or get the latest [GitHub release](https://github.com/zibetnu/godot-git-describe/releases).
