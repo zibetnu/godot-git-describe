@@ -52,7 +52,7 @@ func push_status() -> void:
 
 	push_warning(
 			"Godot Git Describe: custom user dir not defined."
-			 + " Changes to the describe string will change the user dir."
+			+ " Changes to the describe string will change the user dir."
 	)
 
 
