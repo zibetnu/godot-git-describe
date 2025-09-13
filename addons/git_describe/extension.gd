@@ -20,7 +20,7 @@ func erase_describe() -> void:
 
 ## Called when the project runs or an export starts. Override to make
 ## changes with the [param describe] string.
-@warning_ignore("unused_parameter")
+@warning_ignore("unused_parameter")  # gdlint:ignore = unused-argument
 func _set_describe(describe: String) -> void:
 	pass
 
