@@ -23,16 +23,9 @@ static func execute(command: String) -> Results:
 
 
 static func get_git_describe(options := "") -> String:
-	const DEFAULT_GIT_DESCRIBE = ""
-	if not is_git_repository_found():
-		return DEFAULT_GIT_DESCRIBE
-
-	if not is_git_found():
-		return DEFAULT_GIT_DESCRIBE
-
 	var results: Results = execute("git describe " + options)
 	if results.exit_code != 0:
-		return DEFAULT_GIT_DESCRIBE
+		return ""
 
 	return results.output[0].strip_edges()
 
