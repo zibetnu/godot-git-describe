@@ -87,9 +87,7 @@ To create and enable an extension:
 
 ## Contributing
 
-Contributions are welcome. Please follow these guidelines:
+Contributions are welcome. Please try to follow these guidelines:
 
-- Open an issue to allow discussion before making a pull request.
-- [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow)
 - [GDScript style guide](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html)
-- [The seven rules of a great Git commit message](https://cbea.ms/git-commit/)
+- [Git style guide](https://github.com/agis/git-style-guide)
