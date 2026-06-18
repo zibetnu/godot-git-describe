@@ -13,7 +13,7 @@ static func execute(command: String) -> Results:
 
 	var arguments: Array[String] = []
 	arguments.assign(
-			platform_config.get_value(platform_name, "arguments", "") as Array
+			platform_config.get_value(platform_name, "arguments", []) as Array
 	)
 	arguments.append(command)
 
