@@ -26,6 +26,10 @@ gdscript/warnings/unsafe_call_argument=1
 
 enabled=PackedStringArray("res://addons/git_describe/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
