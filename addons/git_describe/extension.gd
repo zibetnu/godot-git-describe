@@ -5,7 +5,7 @@ extends RefCounted
 
 ## Provides convenience methods for managing project settings related
 ## to Godot Git Describe.
-const PluginSettings = preload("res://addons/git_describe/settings.gd")
+const PluginSettings = preload("settings.gd")
 
 
 ## Calls [method _set_describe].
