@@ -43,9 +43,6 @@ GGD relies on Godot's export process. Workflows without that export process may 
 
 See the Godot docs for [detailed instructions](https://docs.godotengine.org/en/stable/tutorials/plugins/editor/installing_plugins.html) if needed.
 
-> [!NOTE]
-> GGD uses Godot 4.4's UID system. Godot 4.3 and earlier will adjust the UIDs after printing a warning on the first run.
-
 ## Usage
 
 1. Add a [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) to your Git repo.
