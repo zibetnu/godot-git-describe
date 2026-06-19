@@ -24,21 +24,14 @@ static func init_setting(
 	ProjectSettings.set_restart_if_changed(setting_name, restart_if_changed)
 
 
-static func get_setting(
-		partial_name: String,
-		default_value: Variant = null
-) -> Variant:
+static func get_setting(partial_name: String, default_value: Variant = null) -> Variant:
 	return ProjectSettings.get_setting(
-			SETTINGS_BASE_PATH.path_join(partial_name),
-			default_value
+			SETTINGS_BASE_PATH.path_join(partial_name), default_value
 	)
 
 
 static func set_setting(partial_name: String, value: Variant) -> void:
-	ProjectSettings.set_setting(
-			SETTINGS_BASE_PATH.path_join(partial_name),
-			value
-	)
+	ProjectSettings.set_setting(SETTINGS_BASE_PATH.path_join(partial_name), value)
 	ProjectSettings.save()
 
 
@@ -59,10 +52,7 @@ static func sort_settings() -> void:
 
 	properties_to_sort.sort_custom(_setting_sort)
 	for i in range(properties_to_sort.size()):
-		ProjectSettings.set_order(
-				properties_to_sort[i].name as String,
-				order_start + i
-		)
+		ProjectSettings.set_order(properties_to_sort[i].name as String, order_start + i)
 
 
 static func _setting_sort(a: Dictionary, b: Dictionary) -> bool:

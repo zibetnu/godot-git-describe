@@ -18,8 +18,7 @@ func _erase_describe() -> void:
 
 func set_describe_setting(value: Variant) -> void:
 	var describe_setting: String = PluginSettings.get_setting(
-			SETTING_NAME,
-			SETTING_DEFAULT_VALUE
+			SETTING_NAME, SETTING_DEFAULT_VALUE
 	)
 	ProjectSettings.set_setting(describe_setting, value)
 	ProjectSettings.save()

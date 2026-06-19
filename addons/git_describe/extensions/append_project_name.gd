@@ -23,8 +23,7 @@ func _set_describe(describe: String) -> void:
 
 	cached_project_name = ProjectSettings.get_setting(PROJECT_NAME_SETTING)
 	ProjectSettings.set_setting(
-			PROJECT_NAME_SETTING,
-			" ".join([cached_project_name, describe])
+			PROJECT_NAME_SETTING, " ".join([cached_project_name, describe])
 	)
 
 

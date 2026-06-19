@@ -36,10 +36,7 @@ func _property_get_revert(property: StringName) -> Variant:
 	return null
 
 
-func _get_setting_recursive(
-		setting: String,
-		default: Variant = null
-) -> String:
+func _get_setting_recursive(setting: String, default: Variant = null) -> String:
 	var value: String = ProjectSettings.get_setting(setting, default)
 	var next_value: String = ProjectSettings.get_setting(value, "")
 	while not next_value.is_empty():

@@ -22,11 +22,7 @@ func _enter_tree() -> void:
 	exporter.export_ended.connect(_erase_describe)
 	add_export_plugin(exporter)
 
-	PluginSettings.init_setting(
-			COMMAND_OPTIONS_SETTING,
-			DEFAULT_COMMAND_OPTIONS,
-			false
-	)
+	PluginSettings.init_setting(COMMAND_OPTIONS_SETTING, DEFAULT_COMMAND_OPTIONS, false)
 
 	_init_extensions_at("res://addons/git_describe/extensions")
 
@@ -35,12 +31,8 @@ func _enter_tree() -> void:
 		"type": TYPE_STRING,
 		"hint": PROPERTY_HINT_DIR,
 	}
-	PluginSettings.init_setting(
-			USER_DIR_SETTING, "", false, true, property_info
-	)
-	_init_extensions_at(
-			PluginSettings.get_setting(USER_DIR_SETTING) as String
-	)
+	PluginSettings.init_setting(USER_DIR_SETTING, "", false, true, property_info)
+	_init_extensions_at(PluginSettings.get_setting(USER_DIR_SETTING) as String)
 	PluginSettings.sort_settings()
 
 
@@ -79,8 +71,7 @@ func _init_extensions_at(path: String) -> void:
 
 func _set_describe() -> void:
 	var options: String = PluginSettings.get_setting(
-			COMMAND_OPTIONS_SETTING,
-			DEFAULT_COMMAND_OPTIONS
+			COMMAND_OPTIONS_SETTING, DEFAULT_COMMAND_OPTIONS
 	)
 	var describe: String = Utilities.get_git_describe(options)
 	for extension in extensions:
@@ -114,10 +105,7 @@ class Exporter:
 		return "godot_git_describe_exporter"
 
 	func _export_begin(
-			_features: PackedStringArray,
-			_is_debug: bool,
-			_path: String,
-			_flags: int
+			_features: PackedStringArray, _is_debug: bool, _path: String, _flags: int
 	) -> void:
 		export_began.emit()
 

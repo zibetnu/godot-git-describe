@@ -12,9 +12,7 @@ static func execute(command: String) -> Results:
 	var path: String = platform_config.get_value(platform_name, "path", "")
 
 	var arguments: Array[String] = []
-	arguments.assign(
-			platform_config.get_value(platform_name, "arguments", []) as Array
-	)
+	arguments.assign(platform_config.get_value(platform_name, "arguments", []) as Array)
 	arguments.append(command)
 
 	var output: Array[String] = []
@@ -38,9 +36,7 @@ static func get_platform_name() -> String:
 
 
 static func is_git_found() -> bool:
-	var which: String = platform_config.get_value(
-			get_platform_name(), "which", ""
-	)
+	var which: String = platform_config.get_value(get_platform_name(), "which", "")
 	var results: Results = execute(" ".join([which, "git"]))
 	return results.exit_code == 0 and not results.output[0].is_empty()
 
@@ -77,7 +73,7 @@ static func push_status() -> void:
 	if not is_platform_configured():
 		push_error(
 				PRINT_ID,
-				"\"%s\" configuration not found in \"%s\"." % [
+				'"%s" configuration not found in "%s".' % [
 					get_platform_name(),
 					CONFIG_PATH
 				]
@@ -86,7 +82,7 @@ static func push_status() -> void:
 	elif not is_git_repository_found():
 		push_error(
 				PRINT_ID,
-				"Git repository not found in \"%s\"."
+				'Git repository not found in "%s".'
 				% ProjectSettings.globalize_path(REPOSITORY_PATH)
 		)
 
