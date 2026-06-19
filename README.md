@@ -49,9 +49,6 @@ See the Godot docs for [detailed instructions](https://docs.godotengine.org/en/s
 2. Add included nodes and adjust project settings as desired.
 3. Run or export the project.
 
-> [!TIP]
-> For best results, do not commit automatic changes to version control.
-
 ### Nodes
 
 | Name | Description |
