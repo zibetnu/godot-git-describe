@@ -12,6 +12,10 @@ const _ITERATIVE_PROPERTY = &"iterative"
 @export var setting_name: String = _get_initial_setting_name()
 @export var default_value: String = _get_initial_default_value()
 
+## If [code]true[/code], [member Label.text] will be set to the value of the
+## project setting even if that value is empty.
+@export var set_if_value_empty := false
+
 ## If [code]true[/code], the value of the project setting will be iteratively
 ## used as the name of the project setting to get the next value from.
 ## Iteration stops when the next value is empty.
@@ -29,7 +33,7 @@ func _ready() -> void:
 	else:
 		setting = ProjectSettings.get_setting(setting_name, default_value)
 
-	if setting.is_empty():
+	if setting.is_empty() and not set_if_value_empty:
 		return
 
 	text = setting
