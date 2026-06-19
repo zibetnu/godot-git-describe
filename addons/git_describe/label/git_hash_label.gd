@@ -7,3 +7,7 @@ extends ProjectSettingLabel
 
 func _get_initial_setting_name() -> String:
 	return "addons/git_describe/commit_hash"
+
+
+func _get_initial_is_iterative() -> bool:
+	return false
