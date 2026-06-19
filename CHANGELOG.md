@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-06-19
+
+### Added
+
+- Label property to toggle whether the label should iteratively get setting values.
+- Label property to toggle whether empty values should be ignored when setting text.
+
+### Changed
+
+- Downgraded project version to match minimum supported Godot version.
+- Refactored and reformatted a few things.
+
+### Fixed
+
+- Case where a string could be cast as an array if a platform's arguments were not defined in platforms.cfg.
+
 ## [1.0.0] - 2025-09-12
 
 ### Added
@@ -101,6 +117,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Label that displays the describe setting out of the box.
 - Demo scene with a status report.
 
+[1.1.0]: https://github.com/zibetnu/godot-git-describe/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/zibetnu/godot-git-describe/compare/0.7.0...1.0.0
 [0.7.0]: https://github.com/zibetnu/godot-git-describe/compare/0.6.0...0.7.0
 [0.6.0]: https://github.com/zibetnu/godot-git-describe/compare/0.5.0...0.6.0
