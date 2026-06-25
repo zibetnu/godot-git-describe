@@ -22,13 +22,42 @@
   <img alt="Windows" src="https://img.shields.io/badge/Windows-0067b8?style=flat-square">
 </p>
 
-Do you use [tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging) to label your project's releases? Do you want to display those labels in your project without manually setting a separate value?
+## What is Git describe?
 
-You've come to the right place.
+Git's [describe](https://git-scm.com/docs/git-describe) command is a convenient way to get a human-readable label for your repository's state.
+
+### Examples
+
+```
+# If the latest commit is tagged, then you simply get that tag. Perfect for version numbers.
+$ git describe
+1.0.0
+
+# Made a commit since the last tag? Output includes the number of commits since that tag plus the latest commit hash.
+$ git describe
+1.0.0-1-abcd123
+
+# No tags? You can fall back to an abbreviated commit hash instead.
+$ git describe --always
+abcd123
+
+# Have uncommitted changes? That can be accounted for.
+$ git describe --dirty
+1.0.0-dirty
+
+$ git describe --dirty=-your-text-here
+1.0.0-your-text-here
+```
+
+### Why use Git describe instead of a commit hash?
+
+1. It's more readable when [tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging) are involved.
+2. It's more informative (e.g., you can easily show when there are uncommitted changes).
+3. It still includes the abbreviated hash when relevant.
 
 ## Features
 
-- Adds your Git repository's [description](https://git-scm.com/docs/git-describe) to your project on run or export.
+- Adds your Git repository's description to your project on run or export.
 - Reverts changes when you stop your project or an export is finished.
 - Batteries included: comes with nodes and settings that cover common use cases.
 
@@ -38,14 +67,14 @@ GGD relies on Godot's export process. Workflows without that export process may 
 
 ## Installation
 
-1. Use Godot to download GGD from the [Asset Library](https://godotengine.org/asset-library/asset/3931) (recommended) or get the latest [GitHub release](https://github.com/zibetnu/godot-git-describe/releases).
+1. Use Godot to download GGD from the [Asset Store](https://store.godotengine.org/asset/zibetnu/godot-git-describe) (recommended) or get the [latest release](https://github.com/zibetnu/godot-git-describe/releases/latest).
 2. Enable GGD in the project settings.
 
 See the Godot docs for [detailed instructions](https://docs.godotengine.org/en/stable/tutorials/plugins/editor/installing_plugins.html) if needed.
 
 ## Usage
 
-1. Add a [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) to your Git repo.
+1. Add a [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) to your Git repo (optional but recommended).
 2. Add included nodes and adjust project settings as desired.
 3. Run or export the project.
 
@@ -53,9 +82,9 @@ See the Godot docs for [detailed instructions](https://docs.godotengine.org/en/s
 
 | Name | Description |
 | - | - |
-| ProjectSettingLabel | A label for displaying the value of a project setting. Base class for the other labels. |
 | GitDescribeLabel | A label that automatically displays the Git describe string. |
 | GitHashLabel | A label that automatically displays the latest Git commit hash. |
+| ProjectSettingLabel | A label for displaying the value of a project setting. Base class for the other labels. |
 
 ### Settings
 
