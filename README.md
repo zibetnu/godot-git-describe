@@ -99,6 +99,14 @@ GGD's project settings are found under the setting path `addons/git_describe`.
 
 [1]: Advanced setting; only shown when the "Advanced Settings" option is enabled.
 
+#### Automatic settings
+
+These are set on run/export and are not intended to be changed manually.
+
+| Path | Description |
+| - | - |
+| `addons/git_describe/commit_hash` | The repository's latest commit hash. |
+
 ### Extensions
 
 Extensions add new features for GGD to use when you run or export your project. GGD uses extensions internally, which are a helpful reference when making your own.
