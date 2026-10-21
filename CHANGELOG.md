@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2026-10-21
+
+### Added
+
+- Section for a previously-undocumented setting.
+
+### Changed
+
+- Overhauled introduction to have examples and reasons to use Git describe over a commit hash.
+- Replaced asset library link with asset store link.
+- Made other small tweaks to README.md.
+
+### Fixed
+
+- Error caused by a check assuming the Git repository root was the same as the Godot project root. That check was removed instead of fixed because the other checks combined made it redundant.
+
 ## [1.1.0] - 2026-06-19
 
 ### Added
@@ -117,6 +133,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Label that displays the describe setting out of the box.
 - Demo scene with a status report.
 
+[1.1.1]: https://github.com/zibetnu/godot-git-describe/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/zibetnu/godot-git-describe/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/zibetnu/godot-git-describe/compare/0.7.0...1.0.0
 [0.7.0]: https://github.com/zibetnu/godot-git-describe/compare/0.6.0...0.7.0
