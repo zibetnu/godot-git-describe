@@ -50,13 +50,6 @@ focus_mode = 0
 button_mask = 0
 text = "Platform configured"
 
-[node name="RepositoryFound" type="CheckBox" parent="VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-focus_mode = 0
-button_mask = 0
-text = "Repository found"
-
 [node name="GitFound" type="CheckBox" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2

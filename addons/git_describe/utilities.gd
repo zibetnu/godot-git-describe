@@ -2,7 +2,6 @@
 extends RefCounted
 
 const CONFIG_PATH = "res://addons/git_describe/platforms.cfg"
-const REPOSITORY_PATH = "res://"
 
 static var platform_config: ConfigFile = load_platform_config()
 
@@ -41,10 +40,6 @@ static func is_git_found() -> bool:
 	return results.exit_code == 0 and not results.output[0].is_empty()
 
 
-static func is_git_repository_found() -> bool:
-	return DirAccess.dir_exists_absolute(REPOSITORY_PATH.path_join(".git"))
-
-
 # gdlint:ignore = max-line-length
 # https://gitlab.steamos.cloud/steamrt/steam-runtime-tools/-/blob/main/docs/slr-for-game-developers.md#detecting-the-container-environment
 static func is_in_steam_runtime() -> bool:
@@ -77,13 +72,6 @@ static func push_status() -> void:
 					get_platform_name(),
 					CONFIG_PATH
 				]
-		)
-
-	elif not is_git_repository_found():
-		push_error(
-				PRINT_ID,
-				'Git repository not found in "%s".'
-				% ProjectSettings.globalize_path(REPOSITORY_PATH)
 		)
 
 	elif not is_git_found():
